@@ -20,16 +20,14 @@ var bookSchema = mongoose.Schema({
   'retail-price': Number
 });
 
-var Book = mongoose.model('Book', bookSchema);
+exports.Book = mongoose.model('Book', bookSchema);
 
-var selectAllBooks = function(callback) {
-  Book.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
-
-module.exports.selectAll = selectAllBooks;
+// exports.selectAllBooks = function(callback) {
+//   Book.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
