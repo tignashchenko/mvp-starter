@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/books');
 
 var db = mongoose.connection;
 
@@ -11,15 +11,19 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var bookSchema = mongoose.Schema({
+  'book-id': {type: String, unique: true},
+  'book-name': String,
+  'author': String,
+  'average-rating': Number,
+  'cover-picture': String,
+  'retail-price': Number
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Book = mongoose.model('Book', bookSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+var selectAllBooks = function(callback) {
+  Book.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -28,4 +32,4 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports.selectAll = selectAllBooks;
