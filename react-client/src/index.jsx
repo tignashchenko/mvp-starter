@@ -37,7 +37,21 @@ class App extends React.Component {
         this.setState({books: books});
       },
       error: (err) => {
-        throw err;
+        console.error(err);
+      }
+    });
+  }
+
+  delete() {
+    $.ajax({
+      url: '/books',
+      method: 'DELETE',
+      success: (res) => {
+        var books = JSON.parse(res);
+        this.setState({books: books});
+      },
+      error: (err) => {
+        console.error(err);
       }
     });
   }
@@ -45,6 +59,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <Search onSearch={this.search.bind(this)} />
+      <button type="button" onClick={this.delete.bind(this)}>Remove all books</button>
       <h1>Book List (sorted by user ratings)</h1>
       <BookList books={this.state.books} />
     </div>)

@@ -19,6 +19,10 @@ app.post('/books', function(req, res) {
   helper.fetchFromGoogleBooks(req, res, query);
 });
 
+app.delete('/books', function(req, res) {
+  helper.deleteBooks(req, res);
+});
+
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
