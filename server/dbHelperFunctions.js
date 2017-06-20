@@ -24,7 +24,8 @@ exports.fetchFromGoogleBooks = (req, res, query) => {
       title: volumeInfo.title,
       author: volumeInfo.authors[0],
       rating: volumeInfo.averageRating,
-      cover: volumeInfo.imageLinks.smallThumbnail
+      cover: volumeInfo.imageLinks.thumbnail,
+      link: volumeInfo.infoLink
     };
     Book.create(bookObj, (err, books) => {
       if (err) {

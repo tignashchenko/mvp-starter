@@ -14,7 +14,7 @@ app.get('/books', function (req, res) {
   helper.dbLookup(req, res);
 });
 
-app.post('/books/import', function(req, res) {
+app.post('/books', function(req, res) {
   var query = req.body.query;
   helper.fetchFromGoogleBooks(req, res, query);
 });

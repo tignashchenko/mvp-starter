@@ -29,7 +29,7 @@ class App extends React.Component {
 
   search(input) {
     $.ajax({
-      url: '/books/import',
+      url: '/books',
       method: 'POST',
       data: {query: input},
       success: (res) => {
@@ -45,7 +45,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <Search onSearch={this.search.bind(this)} />
-      <h1>Book List</h1>
+      <h1>Book List (sorted by user ratings)</h1>
       <BookList books={this.state.books} />
     </div>)
   }

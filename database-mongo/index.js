@@ -12,10 +12,11 @@ db.once('open', function() {
 });
 
 var bookSchema = mongoose.Schema({
-  title: String,
+  title: {type: String, unique: true},
   author: String,
   rating: Number,
-  cover: String
+  cover: String,
+  link: String
 });
 
 var Book = mongoose.model('Book', bookSchema);

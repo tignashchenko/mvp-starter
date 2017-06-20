@@ -21,8 +21,8 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-      Enter a book title: <input value={this.state.input} onChange={this.onChange.bind(this)} />
-    <button onClick={this.search.bind(this)}>Add books!</button>
+       <input placeholder= "Enter a book title..." value={this.state.input} onChange={this.onChange.bind(this)} />
+    <button onClick={this.search.bind(this)}>Add book!</button>
       </div>
     )
   }
