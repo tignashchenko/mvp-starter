@@ -44,9 +44,9 @@ class App extends React.Component {
 
   render () {
     return (<div>
+      <Search onSearch={this.search.bind(this)} />
       <h1>Book List</h1>
       <BookList books={this.state.books} />
-      <Search onSearch={this.search.bind(this)} />
     </div>)
   }
 }

@@ -12,16 +12,10 @@ db.once('open', function() {
 });
 
 var bookSchema = mongoose.Schema({
-  //'book-id': {type: String, unique: true},
-  // 'title': String,
-  // 'authors': String,
-  // 'average-rating': Number,
-  // 'cover-picture': String,
-  // 'retail-price': Number
   title: String,
   author: String,
-  'average-rating': Number,
-  'book-cover': String
+  rating: Number,
+  cover: String
 });
 
 var Book = mongoose.model('Book', bookSchema);

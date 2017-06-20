@@ -2,7 +2,7 @@ const request = require('request');
 const Book = require('../database-mongo/');
 
 exports.dbLookup = (req, res) => {
-  Book.find().limit(25).sort({'average-rating': -1})
+  Book.find().limit(25).sort({rating: -1})
   .exec((err, result) => {
     if (err) {
       throw err;
@@ -23,8 +23,8 @@ exports.fetchFromGoogleBooks = (req, res, query) => {
     var bookObj = {
       title: volumeInfo.title,
       author: volumeInfo.authors[0],
-      'average-rating': volumeInfo.averageRating,
-      'book-cover': volumeInfo.imageLinks.smallThumbnail
+      rating: volumeInfo.averageRating,
+      cover: volumeInfo.imageLinks.smallThumbnail
     };
     Book.create(bookObj, (err, books) => {
       if (err) {
