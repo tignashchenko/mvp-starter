@@ -74,10 +74,10 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <Search onSearch={this.search.bind(this)} />
-      <DeleteBookItem onSearch={this.searchToDelete.bind(this)} />
+      <Search id="search" onSearch={this.search.bind(this)}/>
+      <DeleteBookItem onSearch={this.searchToDelete.bind(this)} /> <br />
       <button type="button" onClick={this.delete.bind(this)}>Remove all books</button>
-      <h1>Book List (sorted by user ratings)</h1>
+      <h1> {window.username + '\'s'} Book List (sorted by user ratings)</h1>
       <BookList books={this.state.books} />
     </div>)
   }

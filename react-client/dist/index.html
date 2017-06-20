@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Book Fetcher</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body onload="getUserName()">
+  <script>
+    function getUserName() {
+      window.username = prompt('Please enter your name: ');
+    }
+  </script>
 <div id="app"></div>
 <script type="text/javascript" src="bundle.js"></script>
 </body>

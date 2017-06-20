@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BookItem = (props) => (
-  <div>
+  <div className="book">
     <br/>
   <img src={props.book.cover} /><br/>
   <a href={props.book.link}> Book title: { props.book.title } </a><br/>
