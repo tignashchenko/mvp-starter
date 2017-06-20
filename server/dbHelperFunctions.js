@@ -18,6 +18,13 @@ exports.deleteBooks = (req, res) => {
   res.send(JSON.stringify([]));
 };
 
+exports.deleteBook = (req, res, query) => {
+  Book.remove({title: query}, (err) => {
+    console.log('Book was removed');
+  })
+  .then(() => exports.dbLookup(req, res));
+};
+
 exports.fetchFromGoogleBooks = (req, res, query) => {
   let host = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
 

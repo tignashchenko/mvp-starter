@@ -19,6 +19,11 @@ app.post('/books', function(req, res) {
   helper.fetchFromGoogleBooks(req, res, query);
 });
 
+app.post('/books/delete', function(req, res) {
+  var query = req.body.query;
+  helper.deleteBook(req, res, query);
+});
+
 app.delete('/books', function(req, res) {
   helper.deleteBooks(req, res);
 });
