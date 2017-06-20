@@ -19,7 +19,9 @@ var bookSchema = mongoose.Schema({
   // 'cover-picture': String,
   // 'retail-price': Number
   title: String,
-  publisher: String
+  author: String,
+  'average-rating': Number,
+  'book-cover': String
 });
 
 var Book = mongoose.model('Book', bookSchema);
