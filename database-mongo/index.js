@@ -12,15 +12,17 @@ db.once('open', function() {
 });
 
 var bookSchema = mongoose.Schema({
-  'book-id': {type: String, unique: true},
-  'book-name': String,
-  'author': String,
-  'average-rating': Number,
-  'cover-picture': String,
-  'retail-price': Number
+  //'book-id': {type: String, unique: true},
+  // 'title': String,
+  // 'authors': String,
+  // 'average-rating': Number,
+  // 'cover-picture': String,
+  // 'retail-price': Number
+  title: String,
+  publisher: String
 });
 
-exports.Book = mongoose.model('Book', bookSchema);
+var Book = mongoose.model('Book', bookSchema);
 
 // exports.selectAllBooks = function(callback) {
 //   Book.find({}, function(err, items) {
@@ -31,3 +33,4 @@ exports.Book = mongoose.model('Book', bookSchema);
 //     }
 //   });
 // };
+module.exports = Book;
